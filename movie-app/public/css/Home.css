@@ -1,0 +1,38 @@
+.rating-wrapper {
+    font-size: 20px!important;
+    color: white!important;
+    text-align: right!important;
+    margin-top: 5px!important;
+}
+
+.float-right {
+    color: white;!important;
+}
+
+.navbar {
+    display: flex!important;
+    justify-content: center;
+    align-items: center;
+    background: black!important;
+}
+
+.nav-link {
+    font-size: 30px !important;
+    text-decoration: none!important;
+    margin: 0 100px!important;
+    color: white!important;
+}
+
+.quantity-button {
+    font-size: 20px !important;
+    width: 20px !important;
+    height: 20px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.quantity-cell {
+    display: flex;
+    align-items: center;
+}

@@ -1,7 +1,9 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="ex4" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
     <option name="ACTIVE_PROFILES" />
-    <module name="react-spring" />
+    <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-17.0.7/Contents/Home" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <module name="demo" />
     <option name="SPRING_BOOT_MAIN_CLASS" value="hac.DemoApplication" />
     <method v="2">
       <option name="Make" enabled="true" />
