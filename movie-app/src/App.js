@@ -1,7 +1,7 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import Home from './components/Home';
-import Cart from './components/Cart';
-import Checkout from './components/Checkout';
+import Home from './components/Search/Home';
+import Cart from './components/Cart/Cart';
+import Checkout from './components/Checkout/Checkout';
 import Navbar from './components/Navbar';
 
 function App() {

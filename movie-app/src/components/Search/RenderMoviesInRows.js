@@ -51,7 +51,10 @@ const renderMoviesInRows = ({movies}) => {
                         </div>
                     </div>
                     <div className="row">
-                        <a href="movie-app/src/components/Search/RenderMoviesInRows#" onClick={() => handlePostFunction(movie.title)}
+                        <a href="#" onClick={(event) => {
+                            event.preventDefault()
+                            handlePostFunction(movie.title)
+                        }}
                            className="float-right"
                            style={{textDecoration: 'none'}}>
                             Add to cart
@@ -67,13 +70,12 @@ const renderMoviesInRows = ({movies}) => {
             }
         });
 
-// Add the last row if it has fewer than 3 movies
+        // Add the last row if it has fewer than 3 movies
         if (row.length > 0) {
             rows.push(<div key={movies.length} className="row">{row}</div>);
         }
 
         return <div>{rows}</div>;
-    }
-;
+    };
 
 export default renderMoviesInRows;

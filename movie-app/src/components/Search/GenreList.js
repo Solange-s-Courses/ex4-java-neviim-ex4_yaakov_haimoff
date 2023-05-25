@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect} from 'react';
 import axios from 'axios';
 
-const GenreList = ({ apiKey, setGenres }) => {
+const GenreList = ({apiKey, setGenres}) => {
     useEffect(() => {
         // Fetch genre list from TMDB API
         console.log("changed genre list")
