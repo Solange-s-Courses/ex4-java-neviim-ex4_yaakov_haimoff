@@ -1,11 +1,12 @@
 import SearchByInput from "./SearchByInput";
 import SearchByGenre from "./SearchByGenre";
-import {searchByTitle, searchByActor} from './SearchFunc';
+import {searchByTitle, searchByActor, searchByGenre} from './SearchFunc';
 
-const SearchMovies = ({apiKey, genres, setGenres, setMovies}) => {
+const SearchMovies = ({apiKey, genres, setMovies}) => {
 
     const placeHolderActor = "Search for a movie by actor"
     const placeHolderTitle = "Search for a movie by title"
+    const placeHolderGenre = "Search for a movie by genre"
     return (
         <div className="row">
             <div className="col-lg-4 col-md-6 col-sm-12">
@@ -25,7 +26,12 @@ const SearchMovies = ({apiKey, genres, setGenres, setMovies}) => {
                 />
             </div>
             <div className="col-lg-4 col-md-12 col-sm-12">
-                <SearchByGenre genres={genres} setGenres={setGenres} setMovies={setMovies}/>
+                <SearchByGenre
+                    searchFunc={searchByGenre}
+                    placeHolder={placeHolderGenre}
+                    apiKey={apiKey}
+                    genres={genres}
+                    setMovies={setMovies}/>
             </div>
         </div>
     );

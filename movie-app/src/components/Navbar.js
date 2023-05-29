@@ -33,7 +33,7 @@
 // export default Navbar;
 
 import React, {useContext, useEffect, useState} from 'react';
-import { CartContext } from './Search/CartContext';
+import { CartContext } from './HomePage/CartContext';
 
 const Navbar = () => {
     const { cartSize } = useContext(CartContext);
