@@ -10,10 +10,16 @@ const Cart = () => {
         fetch('/api/cart')
             .then((response) => response.json())
             .then((data) => {
-                const moviesWithCount = data.map((movie) => ({
-                    name: movie,
-                    count: 1, // Initialize count to 1 for each movie
-                }));
+                const moviesWithCount = data.map((movie) => {
+                    const parsedMovie = JSON.parse(movie);
+                    return {
+                        posterPath: parsedMovie.poster_path,
+                        title: parsedMovie.title,
+                        releaseDate: parsedMovie.release_date,
+                        price: parsedMovie.price,
+                        count: 1, // Initialize count to 1 for each movie
+                    };
+                });
                 setMovies(moviesWithCount);
             })
             .catch((error) => {
@@ -22,10 +28,8 @@ const Cart = () => {
     }, []);
 
     const handleSubmit = () => {
-        // Perform any necessary logic before checkout, such as calculating the total
-
         // Convert the movies array to a string
-        const movieParams = movies.map((movie) => `movies=${encodeURIComponent(movie.name)}`).join('&');
+        const movieParams = movies.map((movie) => `movies=${encodeURIComponent(movie.title)}`).join('&');
 
         // Construct the checkout URL with the movies and total as parameters
         // and navigate to the checkout page
@@ -45,7 +49,6 @@ const Cart = () => {
             <CartTable
                 movies={movies}
                 setMovies={setMovies}
-                moviePrice={moviePrice}
                 calculateTotal={calculateTotal}
             />
             <button className="btn btn-light" style={{fontWeight: 'bold'}}

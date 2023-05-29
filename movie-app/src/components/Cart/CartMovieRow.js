@@ -1,6 +1,7 @@
 import React from 'react';
 
-const CartMovieRow = ({movie, movies, setMovies, index, moviePrice,}) => {
+const CartMovieRow = ({ movie, movies, setMovies, index, moviePrice }) => {
+
     const handleIncreaseWeeks = (index) => {
         const updatedMovies = [...movies];
         updatedMovies[index].count++;
@@ -18,7 +19,14 @@ const CartMovieRow = ({movie, movies, setMovies, index, moviePrice,}) => {
     return (
         <tr key={index}>
             <td>{index + 1}</td>
-            <td>{movie.name.replace(/"/g, '')}</td>
+            <td>
+                <img
+                    src={`https://image.tmdb.org/t/p/w500/${movie.posterPath}`}
+                    alt={movie.title}
+                    style={{ width: '50px' }}
+                />
+            </td>
+            <td>{movie.title}</td>
             <td className="quantity-cell">
                 <button
                     type="button"
@@ -36,11 +44,10 @@ const CartMovieRow = ({movie, movies, setMovies, index, moviePrice,}) => {
                     +
                 </button>
             </td>
-            <td>{moviePrice.toString() + '$'}</td>
-            <td>{(movie.count * moviePrice).toString() + '$'}</td>
+            <td>{movie.price}$</td>
+            <td>{(movie.count * movie.price).toString() + '$'}</td>
         </tr>
     );
-
 };
 
 export default CartMovieRow;

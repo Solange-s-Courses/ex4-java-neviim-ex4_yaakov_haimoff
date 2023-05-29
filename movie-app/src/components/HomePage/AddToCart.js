@@ -4,17 +4,29 @@ import { CartContext } from './CartContext';
 const AddToCart = (movie) => {
     const [cartItems, setCartItems] = useState([]);
     const { updateCartSize } = useContext(CartContext);
+    const price = 3.99;
 
-    function handlePostFunction(movieTitle) {
+    function parseMovie(movie) {
+        movie = {
+            poster_path: movie.poster_path,
+            title: movie.title,
+            release_date: movie.release_date.substring(0, 4),
+            price:price,
+        }
+        return movie;
+    }
+
+    function handlePostFunction(movie) {
+        movie = parseMovie(movie);
         updateCartSize(previousSize => previousSize + 1);
-        setCartItems((prevItems) => [...prevItems, movieTitle]);
+        setCartItems((prevItems) => [...prevItems, movie]);
 
         fetch("/api/cart/add", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(movieTitle),
+            body: JSON.stringify(movie),
         })
             .then(handleResponse)
             .catch(handleError);
@@ -32,10 +44,11 @@ const AddToCart = (movie) => {
     }
 
     const isMovieInCart = (movie) => {
-        return cartItems.some((item) => item.id === movie.id);
+        return cartItems.some((item) => item.title === movie.title);
     };
 
     const handleRemoveFunction = (movie) => {
+        movie = parseMovie(movie);
         setCartItems((prevItems) => prevItems.filter((item) => item.id !== movie.id));
         updateCartSize(previousSize => previousSize - 1);
         fetch("/api/cart/delete", {

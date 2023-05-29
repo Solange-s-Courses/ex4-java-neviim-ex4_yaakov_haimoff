@@ -1,12 +1,13 @@
 import CartMovieRow from './CartMovieRow'
 
-const CartTable = ({movies, setMovies, moviePrice, calculateTotal}) => {
+const CartTable = ({movies, setMovies, calculateTotal}) => {
     return (
         <table className="table table-bordered">
             <thead>
             <tr>
                 <th>#</th>
-                <th>Movie Name</th>
+                <th>Movie Image</th>
+                <th>Movie Title</th>
                 <th>Weeks</th>
                 <th>Price</th>
                 <th>Total</th>
@@ -21,7 +22,6 @@ const CartTable = ({movies, setMovies, moviePrice, calculateTotal}) => {
                         movies={movies}
                         setMovies={setMovies}
                         index={index}
-                        moviePrice={moviePrice}
                     />
                 ))
             ) : (

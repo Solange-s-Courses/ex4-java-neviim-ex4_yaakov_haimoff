@@ -1,6 +1,7 @@
 package hac.repo.controllers;
 
 import hac.repo.beans.Cart;
+import hac.repo.beans.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
@@ -16,27 +17,27 @@ public class CartController {
     private Cart sessionCart;
 
     @PostMapping("/add")
-    public String addMovie(@RequestBody String movieTitle) {
-        List<String> movies = sessionCart.getMovies();
-        if (movies.contains(movieTitle)) {
-            return "Movie already in cart: " + movieTitle;
+    public String addMovie(@RequestBody Movie movie) {
+        List<Movie> movies = sessionCart.getMovies();
+        if (movies.contains(movie)) {
+            return "Movie already in cart: " + movie.getTitle();
         }
-        sessionCart.add(movieTitle);
-         return "Movie added to cart: " + movieTitle;
+        sessionCart.add(movie);
+         return "Movie added to cart: " + movie.getTitle();
     }
 
     @GetMapping
-    public List<String> getCart() {
+    public List<Movie> getCart() {
         return sessionCart.getMovies();
     }
 
     @DeleteMapping("/delete")
-    public String deleteFromCart(@RequestBody String movieTitle) {
-        List<String> movies = sessionCart.getMovies();
-        if (movies.contains(movieTitle)) {
-            movies.remove(movieTitle);
-            return "Movie deleted from cart: " + movieTitle;
+    public String deleteFromCart(@RequestBody Movie movie) {
+        List<Movie> movies = sessionCart.getMovies();
+        if (movies.contains(movie)) {
+            movies.remove(movie);
+            return "Movie deleted from cart: " + movie.getTitle();
         }
-        return "Movie not found in cart: " + movieTitle;
+        return "Movie not found in cart: " + movie.getTitle();
     }
 }

@@ -7,16 +7,16 @@ import java.util.ArrayList;
 
 @Component
 public class Cart implements Serializable {
-    private ArrayList<String> movies;
+    private ArrayList<Movie> movies;
     public Cart() {
         this.movies = new ArrayList<>();
     }
 
-    public ArrayList<String>  getMovies() {
+    public ArrayList<Movie>  getMovies() {
         return movies;
     }
 
-    public void add (String m) {
+    public void add (Movie m) {
         movies.add(m);
     }
 

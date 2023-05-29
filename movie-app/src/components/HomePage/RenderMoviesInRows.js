@@ -30,7 +30,7 @@ const RenderMoviesInRows = ({movies}) => {
                                 <i className="bi bi-calendar"></i>&nbsp;&nbsp;{movie.release_date.substring(0, 4)}
                             </span>
                         </div>
-                        <AddToCart movie={movie.title}/>
+                        <AddToCart movie={movie}/>
                     </div>
                 </div>
             </div>
