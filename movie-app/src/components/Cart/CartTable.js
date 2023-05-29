@@ -8,6 +8,7 @@ const CartTable = ({movies, setMovies, calculateTotal}) => {
                 <th>#</th>
                 <th>Movie Image</th>
                 <th>Movie Title</th>
+                <th>Movie Release Date</th>
                 <th>Weeks</th>
                 <th>Price</th>
                 <th>Total</th>

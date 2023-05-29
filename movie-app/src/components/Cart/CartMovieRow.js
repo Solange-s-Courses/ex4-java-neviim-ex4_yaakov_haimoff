@@ -27,6 +27,7 @@ const CartMovieRow = ({ movie, movies, setMovies, index, moviePrice }) => {
                 />
             </td>
             <td>{movie.title}</td>
+            <td>{movie.releaseDate}</td>
             <td className="quantity-cell">
                 <button
                     type="button"
