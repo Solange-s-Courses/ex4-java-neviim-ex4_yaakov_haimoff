@@ -1,13 +1,31 @@
 import React from 'react';
 
-const CartMovieRow = ({ movie, movies, setMovies, index, moviePrice }) => {
+/**
+ * A component that renders a row in the cart table
+ * @param movie - the movie object
+ * @param movies - the movies array
+ * @param setMovies - the movies array setter
+ * @param index - the index of the movie in the movies array
+ * @returns {JSX.Element}
+ */
+const CartMovieRow = ({ movie, movies, setMovies, index }) => {
 
+    /**
+     * A function that increases the number of weeks
+     * @param index - the index of the movie in the movies array
+     * @returns {void}
+     */
     const handleIncreaseWeeks = (index) => {
         const updatedMovies = [...movies];
         updatedMovies[index].count++;
         setMovies(updatedMovies);
     };
 
+    /**
+     * A function that decreases the number of weeks
+     * @param index - the index of the movie in the movies array
+     * @returns {void}
+     */
     const handleDecreaseWeeks = (index) => {
         const updatedMovies = [...movies];
         if (updatedMovies[index].count > 0) {

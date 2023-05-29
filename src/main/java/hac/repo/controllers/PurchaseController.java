@@ -16,21 +16,24 @@ public class PurchaseController {
         this.purchaseRepository = purchaseRepository;
     }
 
+    /**
+     * Create a new purchase record
+     * @param purchase the purchase record to be created
+     * @return the created purchase record
+     */
     @PostMapping
     public Purchase createPurchase(@RequestBody Purchase purchase) {
-        // Perform any necessary validations or business logic
-        // before saving the purchase
-        // ...
-
         return purchaseRepository.save(purchase);
     }
 
+    /**
+     * Get a purchase record by its id
+     * @param purchaseId the id of the purchase record to be retrieved
+     * @return the purchase record
+     */
     @GetMapping("/{id}")
     public Purchase getPurchaseById(@PathVariable("id") Long purchaseId) {
         return purchaseRepository.findById(purchaseId)
                 .orElseThrow(() -> new RuntimeException("Purchase not found"));
     }
-
-    // Add more methods as needed for updating, deleting, or querying purchases
-    // ...
 }

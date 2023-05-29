@@ -1,5 +1,12 @@
 import axios from 'axios';
 
+/**
+ * Add the searchTerm to the beginning of the history.
+ * If the searchTerm already exists in the history, filter it out from the history.
+ * @param setSearchHistory - the function to set the searchHistory
+ * @param term - the searchTerm to add to the history
+ * @returns {void}
+ */
 const addToSearchHistory = (setSearchHistory, term) => {
     setSearchHistory((prevHistory) => {
         // Check if the searchTerm already exists in the history
@@ -12,6 +19,17 @@ const addToSearchHistory = (setSearchHistory, term) => {
     });
 };
 
+/**
+ * Fetch movies from TMDB API by title
+ * @param params - the params to pass to the API
+ * @param apiKey - the API key
+ * @param searchTerm - the search term - the movie title
+ * @param setMovies - the function to set the movies
+ * @param setSearchTerm - the function to set the searchTerm
+ * @param setSearchHistory - the function to set the searchHistory
+ * @param searchHistory - the searchHistory
+ * @returns {void}
+ */
 const searchByTitle = (params, apiKey, searchTerm, setMovies, setSearchTerm, setSearchHistory, searchHistory) => {
     // Fetch movies from TMDB API by title
     axios
@@ -31,6 +49,17 @@ const searchByTitle = (params, apiKey, searchTerm, setMovies, setSearchTerm, set
     setSearchTerm('');
 };
 
+/**
+ * Fetch movies from TMDB API by Actor
+ * @param params - the params to pass to the API
+ * @param apiKey - the API key
+ * @param actorName - the search term - actor name
+ * @param setMovies - the function to set the movies
+ * @param setSearchTerm - the function to set the searchTerm
+ * @param setSearchHistory - the function to set the searchHistory
+ * @param searchHistory - the searchHistory
+ * @returns {void}
+ */
 const searchByActor = (params, apiKey, actorName, setMovies, setSearchTerm, setSearchHistory, searchHistory) => {
     // Fetch actor details from TMDB API
     axios
@@ -68,6 +97,13 @@ const searchByActor = (params, apiKey, actorName, setMovies, setSearchTerm, setS
     setSearchTerm('');
 };
 
+/**
+ * Fetch movies from TMDB API by genre
+ * @param apiKey - the API key
+ * @param selectedGenres - the selected genres
+ * @param setMovies - the function to set the movies
+ * @returns {void}
+ */
 const searchByGenre = (apiKey, selectedGenres, setMovies) => {
     const genreId = selectedGenres ? selectedGenres.value : null;
 

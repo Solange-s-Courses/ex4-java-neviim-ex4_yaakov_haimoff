@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * A component that renders a 404 page
+ * @returns {JSX.Element}
+ */
 const NotFound = () => {
     return (
         <div>

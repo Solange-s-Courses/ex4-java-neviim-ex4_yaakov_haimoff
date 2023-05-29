@@ -1,14 +1,22 @@
 import CartMovieRow from './CartMovieRow'
 
+/**
+ * A function that renders the cart table
+ *
+ * @param movies - the movies array
+ * @param setMovies - the movies array setter
+ * @param calculateTotal - the function that calculates the total price
+ * @returns {JSX.Element}
+ */
 const CartTable = ({movies, setMovies, calculateTotal}) => {
     return (
         <table className="table table-bordered">
             <thead>
             <tr>
                 <th>#</th>
-                <th>Movie Image</th>
-                <th>Movie Title</th>
-                <th>Movie Release Date</th>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Release Date</th>
                 <th>Weeks</th>
                 <th>Price</th>
                 <th>Total</th>

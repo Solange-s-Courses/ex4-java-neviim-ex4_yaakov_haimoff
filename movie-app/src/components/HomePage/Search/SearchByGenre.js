@@ -1,6 +1,14 @@
 import {useState} from 'react';
 import Select from 'react-select';
 
+/**
+ * A component that renders a search bar for movies by genre
+ * @param searchFunc - a function that searches for movies by genre
+ * @param placeHolder - a placeholder for the search bar
+ * @param apiKey - the API key for the TMDB API
+ * @param genres - a list of genres
+ * @param setMovies - a function that sets the movies state
+ */
 const SearchByGenre = ({
                            searchFunc,
                            placeHolder,
@@ -9,10 +17,20 @@ const SearchByGenre = ({
                            setMovies,
                        }) => {
     const [selectedGenres, setSelectedGenres] = useState([]);
+
+    /**
+     * A function that handles the change of the selected genres
+     * @param selectedOptions - the selected genres
+     * @returns {void}
+     */
     const handleGenreChange = (selectedOptions) => {
         setSelectedGenres(selectedOptions);
     };
 
+    /**
+     * A function that fetches movies by genre
+     * @returns {void}
+     */
     function fetchGenreMovies() {
         searchFunc(apiKey, selectedGenres, setMovies);
     }

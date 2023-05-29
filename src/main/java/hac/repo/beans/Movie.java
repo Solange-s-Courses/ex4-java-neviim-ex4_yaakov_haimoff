@@ -2,6 +2,9 @@ package hac.repo.beans;
 
 import java.io.Serializable;
 
+/**
+ * Movie Bean class
+ */
 public class Movie implements Serializable {
 
     private String posterPath, title;
@@ -14,6 +17,7 @@ public class Movie implements Serializable {
         this.price = price;
     }
 
+    // getters and setters
     public String getPosterPath() {
         return posterPath;
     }

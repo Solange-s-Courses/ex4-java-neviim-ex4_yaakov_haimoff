@@ -4,6 +4,10 @@ import SearchMovies from './Search/SearchMovies';
 import RenderMoviesInRows from './RenderMoviesInRows';
 import DataFetcher from './DataFetcher';
 
+/**
+ * Home component that renders the search bar, genre list, and movies
+ * @returns {JSX.Element}
+ */
 const Home = () => {
     const [genres, setGenres] = useState([]);
     const [movies, setMovies] = useState([]);

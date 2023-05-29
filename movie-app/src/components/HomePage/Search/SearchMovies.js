@@ -2,6 +2,15 @@ import SearchByInput from "./SearchByInput";
 import SearchByGenre from "./SearchByGenre";
 import {searchByTitle, searchByActor, searchByGenre} from './SearchFunc';
 
+/**
+ * This component is used to search for movies by title, actor, or genre.
+ * It uses the SearchByInput and SearchByGenre components.
+ * It is used in the HomePage component.
+ * @param apiKey - the API key used to access the movie database
+ * @param genres - the list of genres
+ * @param setMovies - the function used to set the list of movies
+ * @returns {JSX.Element}
+ */
 const SearchMovies = ({apiKey, genres, setMovies}) => {
 
     const placeHolderActor = "Search for a movie by actor"

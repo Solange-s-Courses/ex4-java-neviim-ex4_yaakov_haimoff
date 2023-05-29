@@ -1,50 +1,26 @@
-// import React, {useState, useEffect} from 'react';
-//
-// const Navbar = () => {
-//     const [cartSize, setCartSize] = useState(0);
-//
-//     useEffect(() => {
-//         fetch('/api/cart')
-//             .then((response) => response.json())
-//             .then((data) => {
-//                 // Assuming the API response returns the cart size as a number
-//                 setCartSize(data.length);
-//             })
-//             .catch((error) => {
-//                 console.log('Error fetching cart data:', error);
-//             });
-//     }, [cartSize]);
-//
-//     return (
-//         <div className="navbar">
-//             <img src="//static.sratim.tv/assets/images/logo.png" className="img-fluid" alt="logo"/>
-//             <a href="/" className="nav-link">SearchByInput</a>
-//             <a href="/cart" className="nav-link">
-//                 Cart &nbsp;
-//                 {cartSize > 0 && (
-//                     <span className="badge rounded-pill badge-notification bg-danger">{cartSize}</span>
-//                 )}
-//             </a>
-//             <a href="/checkout" className="nav-link">Checkout</a>
-//         </div>
-//     );
-// };
-//
-// export default Navbar;
+import React, {useContext, useEffect} from 'react';
+import {CartContext} from './Context/CartContext';
 
-import React, {useContext, useEffect, useState} from 'react';
-import { CartContext } from './HomePage/CartContext';
-
+/**
+ * A component that renders the navbar - web menu bar
+ * It uses the CartContext to display the cart size
+ * It fetches the cart size from the API
+ * and updates the cart size in the CartContext
+ * @returns {JSX.Element}
+ */
 const Navbar = () => {
-    const { cartSize } = useContext(CartContext);
-    const [cart, setCartSize] = useState(0);
+    const {cartSize, updateCartSize} = useContext(CartContext);
 
-        useEffect(() => {
+    /**
+     * Fetch the cart size from the API and update the cart size in the CartContext
+     * @returns {Promise<void>}
+     */
+    useEffect(() => {
         fetch('/api/cart')
             .then((response) => response.json())
             .then((data) => {
                 // Assuming the API response returns the cart size as a number
-                setCartSize(data.length);
+                updateCartSize(data.length);
             })
             .catch((error) => {
                 console.log('Error fetching cart data:', error);
@@ -53,7 +29,7 @@ const Navbar = () => {
 
     return (
         <div className="navbar">
-            <img src="//static.sratim.tv/assets/images/logo.png" className="img-fluid" alt="logo" />
+            <img src="//static.sratim.tv/assets/images/logo.png" className="img-fluid" alt="logo"/>
             <a href="/" className="nav-link">Search</a>
             <a href="/cart" className="nav-link">
                 Cart &nbsp;
@@ -61,7 +37,6 @@ const Navbar = () => {
                     <span className="badge rounded-pill badge-notification bg-danger">{cartSize}</span>
                 )}
             </a>
-            <a href="/checkout" className="nav-link">Checkout</a>
         </div>
     );
 };

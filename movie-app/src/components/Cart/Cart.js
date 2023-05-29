@@ -2,6 +2,13 @@ import React, {useEffect, useState} from 'react';
 
 import CartTable from "./CartTable";
 
+/**
+ * Cart component
+ * Fetches the cart data from the API and renders the cart table
+ * with the movies and total price
+
+ * @returns {JSX.Element}
+ */
 const Cart = () => {
     const [movies, setMovies] = useState([]);
     const moviePrice = 3.99;
@@ -27,15 +34,23 @@ const Cart = () => {
             });
     }, []);
 
+    /**
+     * Handle the checkout button click
+     * Construct the checkout URL with the movies and total as parameters
+     * and navigate to the checkout page
+     * @returns {void}
+     */
     const handleSubmit = () => {
-        // Convert the movies array to a string
-        const movieParams = movies.map((movie) => `movies=${encodeURIComponent(movie.title)}`).join('&');
-
         // Construct the checkout URL with the movies and total as parameters
         // and navigate to the checkout page
-        window.location.href = `/checkout?${movieParams}&total=${calculateTotal()}`;
+        window.location.href = `/checkout?total=${calculateTotal().replace('$', '')}`;
     };
 
+    /**
+     * Calculate the total price of the movies in the cart
+     *
+     * @returns {string} the price with the $ sign
+     */
     const calculateTotal = () => {
         let total = 0;
         movies.forEach((movie) => {
