@@ -1,6 +1,6 @@
 package hac;
 
-import hac.repo.Purchase;
+import hac.repo.beans.Purchase;
 import hac.repo.PurchaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

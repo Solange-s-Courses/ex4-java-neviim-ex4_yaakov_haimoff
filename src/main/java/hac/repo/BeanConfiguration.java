@@ -1,24 +1,24 @@
 package hac.repo;
 
 import hac.repo.beans.Cart;
+import hac.repo.beans.Purchase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
 import org.springframework.web.context.annotation.SessionScope;
 
 @Configuration
 public class BeanConfiguration {
 
     @Bean
-    @Scope("singleton")
-    public Cart autowiredFieldSingletonScope() {
+    @SessionScope
+    public Cart sessionScopeBeanCart() {
         return new Cart();
     }
 
     @Bean
     @SessionScope
-    public Cart sessionScopeBean() {
-        return new Cart();
+    public Purchase sessionScopeBeanPurchase() {
+        return new Purchase();
     }
 
 }

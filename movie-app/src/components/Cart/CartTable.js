@@ -1,16 +1,6 @@
 import CartMovieRow from './CartMovieRow'
 
-const CartTable = ({movies, setMovies}) => {
-    const moviePrice = 3.99;
-
-    const calculateTotal = () => {
-        let total = 0;
-        movies.forEach((movie) => {
-            total += movie.count * moviePrice;
-        });
-        return total.toFixed(2) + '$';
-    };
-
+const CartTable = ({movies, setMovies, moviePrice, calculateTotal}) => {
     return (
         <table className="table table-bordered">
             <thead>

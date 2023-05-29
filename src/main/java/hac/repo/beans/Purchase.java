@@ -1,4 +1,4 @@
-package hac.repo;
+package hac.repo.beans;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

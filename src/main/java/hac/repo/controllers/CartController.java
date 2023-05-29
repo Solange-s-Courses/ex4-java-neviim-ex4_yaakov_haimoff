@@ -1,4 +1,4 @@
-package hac.repo;
+package hac.repo.controllers;
 
 import hac.repo.beans.Cart;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import java.util.List;
 public class CartController {
 
     @Autowired
-    @Qualifier("sessionScopeBean")
+    @Qualifier("sessionScopeBeanCart")
     private Cart sessionCart;
 
     @PostMapping("/add")
@@ -28,5 +28,15 @@ public class CartController {
     @GetMapping
     public List<String> getCart() {
         return sessionCart.getMovies();
+    }
+
+    @DeleteMapping("/delete")
+    public String deleteFromCart(@RequestBody String movieTitle) {
+        List<String> movies = sessionCart.getMovies();
+        if (movies.contains(movieTitle)) {
+            movies.remove(movieTitle);
+            return "Movie deleted from cart: " + movieTitle;
+        }
+        return "Movie not found in cart: " + movieTitle;
     }
 }

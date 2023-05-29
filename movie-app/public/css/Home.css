@@ -9,6 +9,35 @@
     color: white;!important;
 }
 
+.movie-card:hover img {
+    transform: scale(1.1); /* Increase the size of the image on hover */
+}
+
+.movie-card {
+    width: 200px; /* Set the desired width of the movie card */
+}
+
+.movie-image {
+    width: 100%; /* Set the width of the movie image to fill the movie card */
+    height: auto; /* Automatically adjust the height while maintaining the aspect ratio */
+}
+
+@media (min-width: 768px) {
+    /* Medium screens: 3 movies in a row */
+    .movies-container .row > div {
+        flex: 0 0 33.33%;
+        max-width: 33.33%;
+    }
+}
+
+@media (min-width: 992px) {
+    /* Large screens: 4 movies in a row */
+    .movies-container .row > div {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+}
+
 .navbar {
     display: flex!important;
     justify-content: center;
